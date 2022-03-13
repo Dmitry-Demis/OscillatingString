@@ -22,6 +22,7 @@
         <Setter Property="FontFamily" Value="Times New Roman"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5"/>
     </Style>
     <!-- Button -->
     <Style TargetType="{x:Type Button}">
@@ -730,6 +731,7 @@
         <Setter Property="Foreground" Value="{StaticResource ControlForeground}"/>
         <Setter Property="Background" Value="{StaticResource ControlLightBackground}"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GroupBox}">

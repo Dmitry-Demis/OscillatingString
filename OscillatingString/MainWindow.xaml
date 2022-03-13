@@ -17,10 +17,11 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <GroupBox Header="Параметры расчёта" >
+            <GroupBox Grid.Column="0" Header="Параметры расчёта">
                 <DockPanel>
-                    <Grid DockPanel.Dock="Top">
+                    <Grid DockPanel.Dock="Top" VerticalAlignment="Top">
                         <Grid.RowDefinitions>
+                            <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -38,9 +39,24 @@
                         <TextBox Grid.Column="1" Grid.Row="1" Text="0.01"/>
                         <TextBlock Grid.Column="0" Grid.Row="2" Text="dG"/>
                         <TextBox Grid.Column="1" Grid.Row="2" Text="0.01"/>
+                        <TextBlock Grid.Column="0" Grid.Row="3" Text="G1(0.04)"/>
+                        <TextBox Grid.Column="1"   Grid.Row="3" Text="0.0"/> 
+                        <TextBlock Grid.Column="0" Grid.Row="4" Text="G2(1.92)"/>
+                        <TextBox Grid.Column="1"   Grid.Row="4" Text="0.0"/>
+                        <TextBlock Grid.Column="0" Grid.Row="5" Text="G3(0.04)"/>
+                        <TextBox Grid.Column="1"   Grid.Row="5" Text="0.0"/>
+                        <TextBlock Grid.Column="0" Grid.Row="6" Text="G4(-1)"/>
+                        <TextBox Grid.Column="1"   Grid.Row="6" Text="0.0"/>
                     </Grid>
                     
                 </DockPanel>
+            </GroupBox>
+            <GroupBox Grid.Column="1" Header="График колебания струны">
+                <Border Background="#303030"  BorderThickness="1" Grid.Column="1">
+                    <Canvas x:Name="MyCanvas" Loaded="MyCanvas_OnLoaded">
+                        <Image Name="MyImage"></Image>
+                    </Canvas>
+                </Border>
             </GroupBox>
         </Grid>
     </DockPanel>
