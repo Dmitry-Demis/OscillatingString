@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OscillatingString"
+        xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="Прогнозирование колебаний струны" Height="450" Width="800"
         Style="{StaticResource WindowStyle}">
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
-            <Button Content="Старт"/>
+            <Button Content="Старт" Click="Button_Click"/>
             <Button Content="Прогноз"/>
         </ToolBar>
         <Grid>
@@ -57,6 +58,17 @@
                         <Image Name="MyImage"></Image>
                     </Canvas>
                 </Border>
+                <!--<Grid>
+                    <Grid.DataContext>
+                        <local:MainViewModel/>
+                    </Grid.DataContext>
+                    <oxy:Plot Title="{Binding Title}">
+                        <oxy:Plot.Series>
+                            <oxy:LineSeries ItemsSource="{Binding Points}"/>
+                        </oxy:Plot.Series>
+                    </oxy:Plot>
+
+                </Grid>-->
             </GroupBox>
         </Grid>
     </DockPanel>
