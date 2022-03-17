@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Drawing;
 using System.Globalization;
@@ -45,9 +45,14 @@ namespace OscillatingString
             bx,
             dx,
             rx;
+        
+   
+
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -162,5 +167,24 @@ namespace OscillatingString
         {
 
         }
+    }
+
+    class Oscillating_String : BaseViewModel
+    {
+        #region Step : long - Шаг
+
+        /// <summary>Шаг</summary>
+
+        private long _Step;
+
+        /// <summary>Шаг</summary>
+
+        public long Step
+        {
+            get => _Step;
+            set => SetProperty(ref _Step, value);
+        }
+
+        #endregion
     }
 }

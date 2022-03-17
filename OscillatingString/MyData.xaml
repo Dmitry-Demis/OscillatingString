@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="OscillatingString.MyData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OscillatingString"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <GroupBox Grid.Column="0" Header="Параметры расчёта">
+            <DockPanel>
+                <Grid DockPanel.Dock="Top" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Шаг"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="1"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="dH"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="0.01"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="dG"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="0.01"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="G1(0.04)"/>
+                    <TextBox Grid.Column="1"   Grid.Row="3" Text="0.0"/>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="G2(1.92)"/>
+                    <TextBox Grid.Column="1"   Grid.Row="4" Text="0.0"/>
+                    <TextBlock Grid.Column="0" Grid.Row="5" Text="G3(0.04)"/>
+                    <TextBox Grid.Column="1"   Grid.Row="5" Text="0.0"/>
+                    <TextBlock Grid.Column="0" Grid.Row="6" Text="G4(-1)"/>
+                    <TextBox Grid.Column="1"   Grid.Row="6" Text="0.0"/>
+                </Grid>
+
+            </DockPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>
