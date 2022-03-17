@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OscillatingString"
-        xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:oxy="http://oxyplot.org/wpf" d:DataContext="{d:DesignInstance Type=local:MainWindow}"
         mc:Ignorable="d"
         Title="Прогнозирование колебаний струны" Height="450" Width="800"
         Style="{StaticResource WindowStyle}">
@@ -35,7 +35,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Grid.Row="0" Text="Шаг"/>
-                        <TextBox Grid.Column="1" Grid.Row="0" Text="1"/>
+                        <TextBox Grid.Column="1" Grid.Row="0" Text="1" TextChanged="TextBoxBase_OnTextChanged" x:Name="StepTextBox"/>
                         <TextBlock Grid.Column="0" Grid.Row="1" Text="dH"/>
                         <TextBox Grid.Column="1" Grid.Row="1" Text="0.01"/>
                         <TextBlock Grid.Column="0" Grid.Row="2" Text="dG"/>

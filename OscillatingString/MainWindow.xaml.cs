@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace OscillatingString
 {
@@ -45,8 +49,8 @@ namespace OscillatingString
             bx,
             dx,
             rx;
-        
-   
+
+        public long Step { get; set; }
 
 
         public MainWindow()
@@ -57,7 +61,7 @@ namespace OscillatingString
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Task.Run(()=>Go());
+            Task.Run(Go);
         }
 
         private void VarInit()
@@ -111,6 +115,7 @@ namespace OscillatingString
             if (dU < -dH)  Teach(1);
             if (dU > dH) Teach(-1);
             step++;
+            Step = step;
         }
         private static BitmapImage BmpImageFromBmp(Bitmap bmp)
         {
@@ -160,6 +165,11 @@ namespace OscillatingString
         {
             while (true)
             {
+                this.Dispatcher.Invoke(() =>
+                {
+                    StepTextBox.Text = Step.ToString();
+                });
+                Step++;
                 Render();
             }
         }
@@ -167,24 +177,12 @@ namespace OscillatingString
         {
 
         }
-    }
-
-    class Oscillating_String : BaseViewModel
-    {
-        #region Step : long - Шаг
-
-        /// <summary>Шаг</summary>
-
-        private long _Step;
-
-        /// <summary>Шаг</summary>
-
-        public long Step
+       
+        private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            get => _Step;
-            set => SetProperty(ref _Step, value);
+            StepTextBox.Text = Step.ToString();
         }
-
-        #endregion
     }
+
+   
 }
