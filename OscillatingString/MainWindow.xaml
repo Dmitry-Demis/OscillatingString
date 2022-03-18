@@ -11,11 +11,12 @@
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button Content="Старт" Click="Button_Click"/>
-            <Button Content="Прогноз"/>
+            <Button Content="Пауза" Click="Pause_Click" x:Name="PauseButton"/>
+            <Button Content="Продолжить" Click="Start_Click" x:Name="StartButton" Visibility="Hidden"/>
         </ToolBar>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="250"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <GroupBox Grid.Column="0" Header="Параметры расчёта">
@@ -55,20 +56,9 @@
             <GroupBox Grid.Column="1" Header="График колебания струны">
                 <Border Background="#303030"  BorderThickness="1" Grid.Column="1">
                     <Canvas x:Name="MyCanvas" Loaded="MyCanvas_OnLoaded">
-                        <Image Name="MyImage"></Image>
+                        <Image Name="MyImage"/>
                     </Canvas>
-                </Border>
-                <!--<Grid>
-                    <Grid.DataContext>
-                        <local:MainViewModel/>
-                    </Grid.DataContext>
-                    <oxy:Plot Title="{Binding Title}">
-                        <oxy:Plot.Series>
-                            <oxy:LineSeries ItemsSource="{Binding Points}"/>
-                        </oxy:Plot.Series>
-                    </oxy:Plot>
-
-                </Grid>-->
+                </Border>                
             </GroupBox>
         </Grid>
     </DockPanel>
