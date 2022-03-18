@@ -50,13 +50,17 @@ namespace OscillatingString
             dx,
             rx;
 
-        public long Step { get; set; }
+
+
+        private int CanvasHeight;
+        private int CanvasWidth;
+
 
 
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -100,10 +104,10 @@ namespace OscillatingString
 
         private void NewStep()
         {
-            for (var i = 1; i < N-1; i++) f[i] = U[i + 1] - 2 * U[i] + U[i - 1];
+            for (var i = 1; i < N - 1; i++) f[i] = U[i + 1] - 2 * U[i] + U[i - 1];
             for (var i = 1; i < N - 1; i++) Un[i] = 2 * U[i] - Us[i] + r * f[i];
             for (var i = 0; i < N; i++) Ut[i] = 0;
-            for (var j = 1; j < N-1; j++)
+            for (var j = 1; j < N - 1; j++)
             {
                 for (var i = -1; i < 1; i++)
                 {
@@ -112,10 +116,10 @@ namespace OscillatingString
                 }
             }
             var dU = Ut[Nt] - Un[Nt];
-            if (dU < -dH)  Teach(1);
+            if (dU < -dH) Teach(1);
             if (dU > dH) Teach(-1);
             step++;
-            Step = step;
+
         }
         private static BitmapImage BmpImageFromBmp(Bitmap bmp)
         {
@@ -148,9 +152,9 @@ namespace OscillatingString
                     gfx?.DrawLine(pen, 0, (int)(MyCanvas.ActualHeight / 2), (int)MyCanvas.ActualWidth, (int)(MyCanvas.ActualHeight / 2));
                     gfx?.DrawLine(pen, (int)(MyCanvas.ActualWidth / 2), 0, (int)(MyCanvas.ActualWidth / 2), (int)(MyCanvas.ActualHeight));
                     Random random = new Random();
-                    for (int i = 0; i < G.Length-1; i++)
+                    for (int i = 0; i < G.Length - 1; i++)
                     {
-                        gfx?.DrawLine(pen2, (int) G[i], random.Next(1, (int)MyCanvas.ActualHeight), (int)G[i+1], random.Next(1, (int)MyCanvas.ActualHeight));
+                        gfx?.DrawLine(pen2, (int)G[i], random.Next(1, (int)MyCanvas.ActualHeight), (int)G[i + 1], random.Next(1, (int)MyCanvas.ActualHeight));
                     }
                 });
 
@@ -167,22 +171,60 @@ namespace OscillatingString
             {
                 this.Dispatcher.Invoke(() =>
                 {
-                    StepTextBox.Text = Step.ToString();
+                    StepTextBox.Text = step.ToString();
                 });
-                Step++;
+                step++;
                 Render();
             }
         }
         private void MyCanvas_OnLoaded(object sender, RoutedEventArgs e)
         {
+            PresentationSource source = PresentationSource.FromVisual(this);
 
+            double dpiX = 1.0, dpiY = 1.0;
+            if (source != null)
+            {
+                dpiX = 1 / 96.0 * 96.0 * source.CompositionTarget.TransformToDevice.M11;
+                dpiY = 1 / 96.0 * 96.0 * source.CompositionTarget.TransformToDevice.M22;
+            }
+            CanvasHeight = (int)(dpiY * MyCanvas.ActualHeight);
+            CanvasWidth = (int)(dpiX * MyCanvas.ActualWidth);
         }
-       
+
         private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            StepTextBox.Text = Step.ToString();
+            StepTextBox.Text = step.ToString();
+        }
+        private void dGTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void G1TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void G2TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void G3TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void G4TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void dHTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 
-   
+
 }

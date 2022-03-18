@@ -37,17 +37,17 @@
                         <TextBlock Grid.Column="0" Grid.Row="0" Text="Шаг"/>
                         <TextBox Grid.Column="1" Grid.Row="0" Text="1" TextChanged="TextBoxBase_OnTextChanged" x:Name="StepTextBox"/>
                         <TextBlock Grid.Column="0" Grid.Row="1" Text="dH"/>
-                        <TextBox Grid.Column="1" Grid.Row="1" Text="0.01"/>
+                        <TextBox Grid.Column="1" Grid.Row="1" Text="0.01" TextChanged="dHTextBox_TextChanged" x:Name="dHTextBox"/>
                         <TextBlock Grid.Column="0" Grid.Row="2" Text="dG"/>
-                        <TextBox Grid.Column="1" Grid.Row="2" Text="0.01"/>
+                        <TextBox Grid.Column="1" Grid.Row="2" Text="0.01" x:Name="dGTextBox" TextChanged="dGTextBox_TextChanged"/>
                         <TextBlock Grid.Column="0" Grid.Row="3" Text="G1(0.04)"/>
-                        <TextBox Grid.Column="1"   Grid.Row="3" Text="0.0"/> 
+                        <TextBox Grid.Column="1"   Grid.Row="3" Text="0.0" x:Name="G1TextBox" TextChanged="G1TextBox_TextChanged"/> 
                         <TextBlock Grid.Column="0" Grid.Row="4" Text="G2(1.92)"/>
-                        <TextBox Grid.Column="1"   Grid.Row="4" Text="0.0"/>
+                        <TextBox Grid.Column="1"   Grid.Row="4" Text="0.0" x:Name="G2TextBox" TextChanged="G2TextBox_TextChanged"/>
                         <TextBlock Grid.Column="0" Grid.Row="5" Text="G3(0.04)"/>
-                        <TextBox Grid.Column="1"   Grid.Row="5" Text="0.0"/>
+                        <TextBox Grid.Column="1"   Grid.Row="5" Text="0.0" x:Name="G3TextBox" TextChanged="G3TextBox_TextChanged"/>
                         <TextBlock Grid.Column="0" Grid.Row="6" Text="G4(-1)"/>
-                        <TextBox Grid.Column="1"   Grid.Row="6" Text="0.0"/>
+                        <TextBox Grid.Column="1"   Grid.Row="6" Text="0.0" x:Name="G4TextBox" TextChanged="G4TextBox_TextChanged"/>
                     </Grid>
                     
                 </DockPanel>
