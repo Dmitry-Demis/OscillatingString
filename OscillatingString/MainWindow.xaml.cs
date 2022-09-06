@@ -30,30 +30,18 @@ namespace OscillatingString
             dH = 0.01,
             dG = 0.01;
 
-        private double[] Ut = new double[N];
-        private double[] U = new double[N];
-        private double[] Un = new double[N];
-        private double[] Us = new double[N];
-        private double[] f = new double[N];
-        private double[] G = new double[4];
-        private int Nt;
-        private double r;
-        private double[] X;
+        private readonly double[] Ut = new double[N];
+        private  readonly double[] U = new double[N];
+        private  readonly double[] Un = new double[N];
+        private  readonly double[] Us = new double[N];
+        private  readonly double[] f = new double[N];
+        private  readonly double[] G = new double[4];
+        private  readonly int Nt;
+        private  readonly double r;
+        private readonly double[] X;
 
         private long step,
-            err;
-
-        private int Wxl,
-            Wyl,
-            Wxr,
-            Wyr,
-            Wyc,
-            bx,
-            dx,
-            rx;
-
-
-
+            err;        
         private int CanvasHeight;
         private int CanvasWidth;
         private volatile bool pause = false;
@@ -245,11 +233,7 @@ namespace OscillatingString
         {
             StepTextBox.Text = step.ToString();
         }
-        private void dGTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-   
-        }
-
+        
         private void G1TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             G1TextBox.Text = G[0].ToString();
@@ -270,10 +254,6 @@ namespace OscillatingString
             G4TextBox.Text = G[3].ToString();
         }
 
-        private void dHTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 
 
